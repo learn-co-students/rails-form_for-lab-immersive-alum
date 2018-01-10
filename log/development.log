@@ -38,3 +38,609 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (2)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "2"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "TJ"], ["last_name", "Carney"], ["created_at", "2018-01-10 15:23:20.379301"], ["updated_at", "2018-01-10 15:23:20.379301"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Kira"], ["last_name", "Heeschen"], ["created_at", "2018-01-10 15:23:20.385709"], ["updated_at", "2018-01-10 15:23:20.385709"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Ketchoyian"], ["created_at", "2018-01-10 15:23:20.392502"], ["updated_at", "2018-01-10 15:23:20.392502"]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Ryan"], ["last_name", "Shivy"], ["created_at", "2018-01-10 15:23:20.400397"], ["updated_at", "2018-01-10 15:23:20.400397"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sean"], ["last_name", "Carney"], ["created_at", "2018-01-10 15:23:20.407039"], ["updated_at", "2018-01-10 15:23:20.407039"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+
+
+Started GET "/" for 149.125.127.142 at 2018-01-10 15:23:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 69ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:23:42 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `eacch' for #<Student::ActiveRecord_Relation:0x0000000561a760>
+Did you mean?  each):
+    1: <h1>Students</h1>
+    2: 
+    3: <% @students.eacch do |student| %>
+    4:   <h2><%= student.to_s %></h2>
+    5: <%end%>
+  app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb___46247726682958918_45087120'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (94.8ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:23:58 +0000
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <h1>Students</h1>
+    2: 
+    3: <% @students.each do |student| %>
+    4:   <h2><%= student.to_s %></h2>
+    5: <%end%>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:4:in `block in _app_views_students_index_html_erb___46247726682958918_23519100'
+  app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb___46247726682958918_23519100'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (89.1ms)
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:27:15 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <h1>Students</h1>
+    2: 
+    3: <% @students.each do |student| %>
+    4:   <h2><%= student.to_s %></h2>
+    5: <%end%>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:4:in `block in _app_views_students_index_html_erb___1533425129789168949_12095120'
+  app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb___1533425129789168949_12095120'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (61.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (93.0ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:29:16 +0000
+Processing by StudentsController#index as HTML
+  Rendered students/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+LoadError (cannot load such file -- pry):
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___1533425129789168949_18402960'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (51.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.2ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:29:31 +0000
+Processing by StudentsController#index as HTML
+  Rendered students/index.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+LoadError (cannot load such file -- pry):
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___1533425129789168949_20154780'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (58.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.3ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:29:43 +0000
+Processing by StudentsController#index as HTML
+  Rendered students/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+LoadError (cannot load such file -- Pry):
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___1533425129789168949_21427680'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.7ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:29:52 +0000
+Processing by StudentsController#index as HTML
+  Rendered students/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+LoadError (cannot load such file -- Pry):
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___1533425129789168949_29689560'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (58.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (79.2ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:32:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    2: <h1>Students</h1>
+    3: 
+    4: <% @students.each do |student| %>
+    5:   <h2><%= student.to_s %></h2>
+    6: <%end%>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:5:in `block in _app_views_students_index_html_erb___366009027476256753_34677220'
+  app/views/students/index.html.erb:4:in `_app_views_students_index_html_erb___366009027476256753_34677220'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (60.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.3ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:32:54 +0000
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (148977.5ms)
+Completed 500 Internal Server Error in 148980ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    3: 
+    4: <% @students.each do |student| %>
+    5: <% binding.pry %>
+    6:   <h2><%= student.to_s %></h2>
+    7: <%end%>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:6:in `block in _app_views_students_index_html_erb___366009027476256753_34034240'
+  app/views/students/index.html.erb:4:in `_app_views_students_index_html_erb___366009027476256753_34034240'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (55.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.4ms)
+  [1m[36mStudent Load (1.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSQL (5.3ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 2]]
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:36:58 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 1138ms (Views: 1125.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js?body=1" for 149.125.127.142 at 2018-01-10 15:37:00 +0000
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:39:40 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>New Student</h1>
+    2: 
+    3: <%= form_for(@student) do |f| %>
+    4:   <%= f.label :first_name %>
+    5:   <%= f.text_field :first_name %>
+    6:   <%= f.label :last_name %>
+  app/views/students/new.html.erb:3:in `_app_views_students_new_html_erb__3129554260590015502_70080057295600'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.3ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:41:46 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (78.3ms)
+Completed 200 OK in 107ms (Views: 98.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/students" for 149.125.127.142 at 2018-01-10 15:44:23 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zjm7Pk39Sss+lPyXAU4gcsClwe3YJRXjVbYWAfu1Xklw0gJ/KPEyzmdCx99IMyzCy2KELxdbLstzDzbvpYV7Wg==", "student"=>{"first_name"=>"Rich", "last_name"=>"Nolan"}, "commit"=>"Create Student"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `create' for nil:NilClass):
+  app/controllers/students_controller.rb:13:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (56.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (88.2ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:44:53 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.6ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 84ms (Views: 78.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:44:58 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 149.125.127.142 at 2018-01-10 15:45:05 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q/MIGIt11ROJHoftEqwWMxWsNCSmq+lGxdIydlcDP6f9GLFZ7nmtFtDIvKVb0RqDHmtx5mnV0m7jaxKYCTMatA==", "student"=>{"first_name"=>"Rich ", "last_name"=>"Nolan "}, "commit"=>"Create Student"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 176401ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `create' for nil:NilClass):
+  app/controllers/students_controller.rb:15:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (53.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (13.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.4ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:48:06 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 89ms (Views: 29.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:48:08 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 149.125.127.142 at 2018-01-10 15:48:15 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XmjE5aK7fd1AEHkcjI0wZCDS4bUp53m/mExDv1uTaivgg32kx7cF2BnGQlTF8DzUKxWkd+aZQpe+9WNRBaNPOA==", "student"=>{"first_name"=>"Rich", "last_name"=>"Nolan"}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Rich"], ["last_name", "Nolan"], ["created_at", "2018-01-10 15:48:15.668046"], ["updated_at", "2018-01-10 15:48:15.668046"]]
+  [1m[36m (5.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 7.8ms)
+
+NoMethodError (undefined method `post_path' for #<StudentsController:0x007f79842b8720>):
+  app/controllers/students_controller.rb:15:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (94.5ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:48:31 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 81ms (Views: 77.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:48:34 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 149.125.127.142 at 2018-01-10 15:48:40 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"40zdq2M87vF9R81ZyxkzKq5IxoRhSk6I6fZMCBW/32Fdp2TqBjCW9CSR9hGCZD+apY+DRq40daDPT2zmS4/6cg==", "student"=>{"first_name"=>"Erik", "last_name"=>"Lambe"}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Erik"], ["last_name", "Lambe"], ["created_at", "2018-01-10 15:48:40.431295"], ["updated_at", "2018-01-10 15:48:40.431295"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.4ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"students", :id=>nil} missing required keys: [:id]):
+  app/controllers/students_controller.rb:15:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.7ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:49:22 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.6ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 91ms (Views: 86.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:49:24 +0000
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 149.125.127.142 at 2018-01-10 15:49:30 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s6B0Q5ye8N88EP9nYWfBsTs1hCgjAK1DBntPGt/7/V0NS80C+ZKI2mXGxC8oGs0BMPLB6ux+lmsgwm/0gcvYTg==", "student"=>{"first_name"=>"Joe", "last_name"=>"Taylor"}, "commit"=>"Create Student"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Joe"], ["last_name", "Taylor"], ["created_at", "2018-01-10 15:49:30.199209"], ["updated_at", "2018-01-10 15:49:30.199209"]]
+  [1m[36m (49.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.84.37:30000/students
+Completed 302 Found in 55ms (ActiveRecord: 50.0ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:49:30 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/new" for 149.125.127.142 at 2018-01-10 15:50:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 892ms (Views: 824.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/students/3" for 149.125.127.142 at 2018-01-10 15:50:41 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mStudent Load (0.4ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 57ms (Views: 45.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/3/edit" for 149.125.127.142 at 2018-01-10 15:53:17 +0000
+Processing by StudentsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 219ms (Views: 134.5ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/students/3" for 149.125.127.142 at 2018-01-10 15:55:02 +0000
+Processing by StudentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DpSMtpib7rf9MrhP0yQHr0rXzz7tLqwx4ILXMVnYPaiwfzX3/ZeWsqTkgweaWQsfQRCK/CJQlxnGO/ffB+gYuw==", "student"=>{"first_name"=>"TJ", "last_name"=>"Carney Jr"}, "commit"=>"Update Student", "id"=>"3"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "students" SET "last_name" = ?, "updated_at" = ? WHERE "students"."id" = ?  [["last_name", "Carney Jr"], ["updated_at", "2018-01-10 15:55:03.362235"], ["id", 3]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 11.1ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"students", :id=>nil} missing required keys: [:id]):
+  app/controllers/students_controller.rb:29:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.3ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:55:16 +0000
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 80ms (Views: 76.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/students/8/edit" for 149.125.127.142 at 2018-01-10 15:55:26 +0000
+Processing by StudentsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered students/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/students/8" for 149.125.127.142 at 2018-01-10 15:55:31 +0000
+Processing by StudentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qQTz2k0olNAov79kaWxEYAOJ7pr0ElqZAdkaTdFKIC4X70qbKCTs1XFphCwgEUjQCE6rWDtsYbEnYDqjj3oFPQ==", "student"=>{"first_name"=>"Rich", "last_name"=>"Nolan III"}, "commit"=>"Update Student", "id"=>"8"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  UPDATE "students" SET "last_name" = ?, "updated_at" = ? WHERE "students"."id" = ?  [["last_name", "Nolan III"], ["updated_at", "2018-01-10 15:55:31.951110"], ["id", 8]]
+  [1m[36m (6.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.84.37:30000/students/8
+Completed 302 Found in 95ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/students/8" for 149.125.127.142 at 2018-01-10 15:55:31 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered students/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 15:55:35 +0000
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "TJ"], ["last_name", "Carney"], ["created_at", "2018-01-10 16:00:02.677794"], ["updated_at", "2018-01-10 16:00:02.677794"]]
+  [1m[35m (10.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Kira"], ["last_name", "Heeschen"], ["created_at", "2018-01-10 16:00:02.694316"], ["updated_at", "2018-01-10 16:00:02.694316"]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Ketchoyian"], ["created_at", "2018-01-10 16:00:02.702706"], ["updated_at", "2018-01-10 16:00:02.702706"]]
+  [1m[35m (49.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Ryan"], ["last_name", "Shivy"], ["created_at", "2018-01-10 16:00:02.755070"], ["updated_at", "2018-01-10 16:00:02.755070"]]
+  [1m[36m (9.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sean"], ["last_name", "Carney"], ["created_at", "2018-01-10 16:00:02.768077"], ["updated_at", "2018-01-10 16:00:02.768077"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)  [["title", "History"], ["room_number", 322]]
+  [1m[36m (18.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Math"], ["room_number", 118]]
+  [1m[35m (9.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)  [["title", "English"], ["room_number", 235]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Chemistry"], ["room_number", 128]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)  [["title", "Gym"], ["room_number", 244]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Government"], ["room_number", 133]]
+  [1m[35m (2.7ms)[0m  commit transaction
+
+
+Started GET "/students" for 149.125.127.142 at 2018-01-10 16:00:11 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 916ms (Views: 902.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/school_classes" for 149.125.127.142 at 2018-01-10 16:00:23 +0000
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.5ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 92ms (Views: 87.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/school_classes" for 149.125.127.142 at 2018-01-10 16:00:58 +0000
+Processing by SchoolClassesController#index as HTML
+  [1m[35mSchoolClass Load (0.3ms)[0m  SELECT "school_classes".* FROM "school_classes"
+  Rendered school_classes/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/school_classes" for 149.125.127.142 at 2018-01-10 16:01:12 +0000
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 126ms (Views: 125.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/school_classes/new" for 149.125.127.142 at 2018-01-10 16:03:55 +0000
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (95.7ms)
+Completed 200 OK in 182ms (Views: 118.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/school_classes" for 149.125.127.142 at 2018-01-10 16:04:08 +0000
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SsdMaySi7HHfe1bD57/+Sjmmb+Ddg5mupu9igsB5Quj0LPUqQa6UdIatbYuuwvL6MmEqIhL9ooaAVkJsnkln+w==", "school_class"=>{"title"=>"Spanish", "room_number"=>"222"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Spanish"], ["room_number", 222]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://159.203.84.37:30000/school_classes
+Completed 302 Found in 10ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/school_classes" for 149.125.127.142 at 2018-01-10 16:04:08 +0000
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1" for 149.125.127.142 at 2018-01-10 16:05:16 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 18.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/school_classes/1/edit" for 149.125.127.142 at 2018-01-10 16:07:44 +0000
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/edit.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 89ms (Views: 78.1ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/school_classes/1" for 149.125.127.142 at 2018-01-10 16:07:49 +0000
+Processing by SchoolClassesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mYmjYGYuNab/lmuXbdV0k/BCskghArOGtE/hX1Ky3wInYhohAyJNo6ZAUN8kqHgj+4X3iu58iK6S9sGxDIL6EQ==", "school_class"=>{"title"=>"History", "room_number"=>"321"}, "commit"=>"Update School class", "id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "school_classes" SET "room_number" = ? WHERE "school_classes"."id" = ?  [["room_number", 321], ["id", 1]]
+  [1m[36m (80.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.84.37:30000/school_classes/1
+Completed 302 Found in 89ms (ActiveRecord: 81.6ms)
+
+
+Started GET "/school_classes/1" for 149.125.127.142 at 2018-01-10 16:07:49 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes" for 149.125.127.142 at 2018-01-10 16:07:52 +0000
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 62ms (Views: 61.3ms | ActiveRecord: 0.3ms)
