@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 students = Student.create([{first_name: 'Patrick', last_name: 'Star'}, {first_name: 'Spongebob', last_name: 'Squarepants'}])
-school_classes = School_Class.create([{title:'Boating School 101', room_number:'102'}, {title: 'Boating School 102', room_number:'103'}])
+school_classes = SchoolClass.create([{title:'Boating School 101', room_number:'102'}, {title: 'Boating School 102', room_number:'103'}])
